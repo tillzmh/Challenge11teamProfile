@@ -30,6 +30,20 @@ function start() {
     mainMenu();
 }
 
+async function mainMenu() {
+    const res=await inquirer.prompt({
+        message: "what do you want to do?",
+        type: "list",
+        name: "action",
+        choices: ["add engineer", "add intern", "add manager", "finsh"]
+    });
+    switch(res.action){
+        case "add engineer": return addEngineer();
+        case "add intern": return addIntern();
+        case "add manager": return addManager();
+            case "finsh": return finsh();
+    }
+}
 
 async function addManager(){
     const res=await inquirer.prompt([...empquestions,{
@@ -40,6 +54,27 @@ async function addManager(){
 
     team.push(emp);
 }
+
+async function addEngineer(){
+    const res=await inquirer.prompt([...empquestions,{
+        message: "github?",
+        name:"github"
+    }])
+    const emp=new Engineer(res.id, res.name, res.email, res.github);
+    team.push(emp);
+}
+
+async function addIntern(){
+    const res=await inquirer.prompt([...empquestions,{
+        message: "school?",
+        name:"school"
+    }]);
+    const emp=new Intern(res.id, res.name, res.email, res.school)
+
+team.push(emp)
+}
+
+
 
 function finish (fileName, data) {
     const filepath =".dist/team.html";
