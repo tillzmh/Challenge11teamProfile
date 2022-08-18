@@ -1,11 +1,9 @@
-const Employee = require
-const Manger = require
-const Engineer = require
-const Intern = require
+const Employee = require ("./lib/employee.js")
+const Manager = require ("./lib/manager.js")
+const Engineer = require("./lib/engineer.js")
+const Intern = require("./lib/intern.js")
 const inquirer = require ("inquirer")
 const fs = require('fs')
-const { start } = require("repl")
-const { templateElement } = require("@babel/types")
 const generateHtml = require 
 const empquestions = [
     {
@@ -23,7 +21,7 @@ const empquestions = [
     
 ];
 
-start()
+start();
 
 function start() {
     console.log(WelcomeMessage)
@@ -41,7 +39,7 @@ async function mainMenu() {
         case "add engineer": return addEngineer();
         case "add intern": return addIntern();
         case "add manager": return addManager();
-            case "finsh": return finsh();
+        case "finsh": return finsh();
     }
 }
 
@@ -53,27 +51,28 @@ async function addManager(){
     const emp=new Manager(res.id, res.name, res.email, res.officenumber);
 
     team.push(emp);
+    mainMenu();
 }
 
 async function addEngineer(){
     const res=await inquirer.prompt([...empquestions,{
         message: "github?",
-        name:"github"
+        name:"github",
     }])
     const emp=new Engineer(res.id, res.name, res.email, res.github);
     team.push(emp);
+    mainMenu();
 }
 
 async function addIntern(){
     const res=await inquirer.prompt([...empquestions,{
         message: "school?",
-        name:"school"
+        name:"school",
     }]);
     const emp=new Intern(res.id, res.name, res.email, res.school)
-
-team.push(emp)
+    team.push(emp);
+    mainMenu();
 }
-
 
 
 function finish (fileName, data) {
