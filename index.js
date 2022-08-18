@@ -1,10 +1,10 @@
-const Employee = require ("./lib/employee.js")
-const Manager = require ("./lib/manager.js")
-const Engineer = require("./lib/engineer.js")
-const Intern = require("./lib/intern.js")
-const inquirer = require ("inquirer")
-const fs = require('fs')
-const generateHtml = require 
+const inquirer = require ("inquirer");
+const Employee = require ("./lib/employee.js");
+const Manager = require ("./lib/manager.js");
+const Engineer = require("./lib/engineer.js");
+const Intern = require("./lib/intern.js");
+const fs = require('fs');
+const generateHtml = require("./src/pagetemplate.js");
 const empquestions = [
     {
         message: "ID?",
@@ -21,10 +21,10 @@ const empquestions = [
     
 ];
 
+var team =[];
 start();
 
 function start() {
-    console.log(WelcomeMessage)
     mainMenu();
 }
 
@@ -33,13 +33,13 @@ async function mainMenu() {
         message: "what do you want to do?",
         type: "list",
         name: "action",
-        choices: ["add engineer", "add intern", "add manager", "finsh"]
+        choices: ["add engineer", "add intern", "add manager", "finish"]
     });
     switch(res.action){
         case "add engineer": return addEngineer();
         case "add intern": return addIntern();
         case "add manager": return addManager();
-        case "finsh": return finsh();
+        case "finish": return finish();
     }
 }
 
