@@ -15,12 +15,6 @@ body {
         background-color: gary
         }
 
-header {background-color:blue;
-        color: white,
-        font-size: 12px;
-        font-weight: 500;
-        font-style: normal;
-}
 
 div{
     display: inline-block;
@@ -41,7 +35,31 @@ engineer{
 
 </style>
 
-        
+        <div class = "intern">
+        <h3>Inter</h3>
+        <h2>Lamar Jackson</h2>
+        <p>ID:34166</p>
+        <p>email: LJackson@lamar.com</p>
+        <p>School: Louisville</p>
+        </div>
+
+        <div class = "manager">
+        <h3>Manager</h3>
+        <h2>Lawrence Taylor</h2>
+        <p>ID:5656</p>
+        <p>email:LTaylor@lawrence.com</p>
+        <p>office number: 123-456-7890</p>
+        </div>
+
+        <div class = "engineer">
+        <h3>Engineer</h3>
+        <h2> Ermias Joesph </h2>
+        <p>email:joesph@gmail.com</p>
+        <p>ID:0815</p>
+        <p>github: Hussle</p>
+
+
+
 
     </head>
     <body>

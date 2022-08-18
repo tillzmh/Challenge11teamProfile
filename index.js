@@ -21,7 +21,7 @@ const empquestions = [
     
 ];
 
-var team =[];
+var team = [];
 start();
 
 function start() {
