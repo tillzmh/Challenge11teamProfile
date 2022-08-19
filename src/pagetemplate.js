@@ -8,29 +8,20 @@ module.exports = function (team){
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <style>
-body {
+
+body{
+    background-color: antiquewhite;
         margin: 0
-        padding: 0
-        display: inline-block;
-        background-color: gary
-        }
-
-
+    }
+        
 div{
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.manager{
-    background-color: white;
-}
-
-.intern{
-    background-color: white;
-}
-
-engineer{
-    background-color: white;
+    display: flexbox;
+    align-items: center;
+    }
+        
+.manager, .intern, .engineer{
+    background-color: gray;
+    width: 25%;
 }
 
 </style>

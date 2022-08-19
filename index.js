@@ -75,7 +75,8 @@ async function addIntern(){
 }
 
 
-function finish (fileName, data) {
-    const filepath =".dist/team.html";
+function finish() {
+    const filepath = "./dist/team.html";
+    const data = generateHtml(team);
     fs.writeFileSync(filepath, data);
     }
