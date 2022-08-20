@@ -70,13 +70,19 @@ async function addIntern(){
         name:"school",
     }]);
     const emp=new Intern(res.id, res.name, res.email, res.school)
+    console.log(emp);
     team.push(emp);
+    console.log(team);
+    console.log("intern added");
     mainMenu();
 }
 
 
 function finish() {
     const filepath = "./dist/team.html";
-    const data = generateHtml(team);
+    const data = generateHtml (filepath);
+    
+    console.log(data);
     fs.writeFileSync(filepath, data);
     }
+    

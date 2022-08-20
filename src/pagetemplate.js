@@ -1,13 +1,20 @@
-module.exports = function (team){
-    var html = `<!DOCTYPE html>
+module.exports=function (team){
+    var html = `
+    <!DOCTYPE html>
     <html lang="en">
-    <head>
+<html>
+<head>
+
     <title>TeamCity</title>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+<style>
 
-        <style>
+header { background color: darkblue; 
+    font-size: 12px;
+    color: black;}
 
 body{
     background-color: antiquewhite;
@@ -21,41 +28,45 @@ div{
         
 .manager, .intern, .engineer{
     background-color: gray;
-    width: 25%;
-}
-
+    width: 25%;}
 </style>
+</head>
 
-        <div class = "intern">
-        <h3>Inter</h3>
-        <h2>Lamar Jackson</h2>
-        <p>ID:34166</p>
-        <p>email: LJackson@lamar.com</p>
-        <p>School: Louisville</p>
-        </div>
+    <header>
+<title>TeamCity</title>
+<h1>The Team</h1>
+</header>
 
-        <div class = "manager">
-        <h3>Manager</h3>
-        <h2>Lawrence Taylor</h2>
-        <p>ID:5656</p>
-        <p>email:LTaylor@lawrence.com</p>
-        <p>office number: 123-456-7890</p>
-        </div>
+`;
 
-        <div class = "engineer">
-        <h3>Engineer</h3>
-        <h2> Ermias Joesph </h2>
-        <p>email:joesph@gmail.com</p>
-        <p>ID:0815</p>
-        <p>github: Hussle</p>
+        for(let emp of team){
+            html +=`
+            <div class="${emp.gettype()}">
+            <h3>${emp.gettype()}</h3>
+            <h2>${emp.getname()}</h2>
+            <p>email: ${emp.getemail()}</p>
+            <p>ID: ${emp.getid()}</p>`;
 
+            if(emp.gettype()==="Engineer"){
+            html +=`
+            <p>github: ${emp.getgithub}</p>`
+            }
 
+        else if(emp.gettype()==="Intern"){
+            html +=`
+            <p>School name: ${emp.getschool}</p>`;
+            }
 
-
-    </head>
-    <body>
+            else if(emp.gettype()==="Manager"){
+            html +=`
+            <p>office number: ${emp.getOfficeNumber}</p>`
+            }
+        html += `
+        </div>`;
+    }
+        html =+`
+        </body>
+        </html`;
+        return html;
         
-    </body>
-    </html>
-    `
-}
+    }
