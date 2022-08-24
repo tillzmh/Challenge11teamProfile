@@ -5,16 +5,17 @@ const Engineer = require("./lib/engineer.js");
 const Intern = require("./lib/intern.js");
 const fs = require('fs');
 const generateHtml = require("./src/pagetemplate.js");
+const filepath = ("./team.html");
 const empquestions = [
-    {
+    {   type:"input",
         message: "ID?",
         name: "id",
     },
-    {
+    {   type:"input",
         message: "Name?",
         name: "name",
     },
-    {
+    { type:"input",
         message: "Email?",
         name: "email",
     }
@@ -51,6 +52,7 @@ async function addManager(){
     const emp=new Manager(res.id, res.name, res.email, res.officenumber);
 
     team.push(emp);
+    console.log("manager added successfully");
     mainMenu();
 }
 
@@ -61,6 +63,7 @@ async function addEngineer(){
     }])
     const emp=new Engineer(res.id, res.name, res.email, res.github);
     team.push(emp);
+    console.log("engineer added successfully");
     mainMenu();
 }
 
@@ -78,11 +81,12 @@ async function addIntern(){
 }
 
 
-function finish() {
+function finish(){
+    console.log(team);
     const filepath = "./dist/team.html";
-    const data = generateHtml (filepath);
-    
-    console.log(data);
-    fs.writeFileSync(filepath, data);
+    const data = generateHtml(team);
+    console.log(typeof data)
+fs.writeFileSync(filepath,data);
+    process.exit();
     }
     
